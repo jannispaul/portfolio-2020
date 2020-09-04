@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "clean-css": "^4.2.3"
+  },
+  "scripts": {
+    "help": "npx @11ty/eleventy --help",
+    "serve": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --watch"
+  }
+}

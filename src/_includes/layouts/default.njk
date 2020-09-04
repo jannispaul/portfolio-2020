@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta property="og:title" content="{{ title or renderData.title or metadata.title }}">
+  <meta name="apple-mobile-web-app-title" content="{{ title or renderData.title or metadata.title }}">
+  <meta name="twitter:title" content="{{ title or renderData.title  or metadata.title }}"> 
+  <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
+  <!-- Icon -->
+  <link rel="icon" type="image/png"  href="{{ favicon }}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#000000">
+  <!-- Description -->
+  <meta name="description" content="{{ description }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <!-- CSS -->
+  {% set css %}
+    {% include "css/main.css" %}
+  {% endset %}
+  <style>{{ css | cssmin | safe }}</style>
+</head>
+<body>
+  <div class="container">
+    {% include "components/header.njk" %}
+    <section>
+      <div class="content">
+        {{ content | safe }}
+      </div>
+    </section>
+    {% include "components/footer.njk" %}
+  </div>
+  <div class="focus"></div>
+  <script>
+  {# const circle = document.querySelector(".focus"); #}
+  let rows = Array.from(document.querySelectorAll("tr"));
+  rows.forEach(row => row.addEventListener("mouseenter", (e) => e.target.classList.add("active")));
+  rows.forEach(row => row.addEventListener("mouseleave", (e) => e.target.classList.remove("active")));
+
+
+ function debounce(func, wait = 20, immediate = true) {
+        var timeout;
+        return function () {
+          var context = this,
+            args = arguments;
+          var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+  };
+ 
+
+  const filterButtons = Array.from(document.querySelectorAll(".filter > button"));
+  filterButtons.forEach(button => button.addEventListener("click", changeFilter));
+
+  function updateActiveState(e){
+    filterButtons.forEach(button => button.dataset.name === e.target.dataset.name && !button.classList.contains("active") ? button.classList.add("active") : button.classList.remove("active"));
+  }
+
+  function filterList(e){
+    const filter = e.target.dataset.name;
+    if (filter === "all") {
+      rows.forEach(row => row.style.display="revert");
+      return;
+    }
+    rows.filter(row => row.dataset.name === filter ? row.style.display="revert" : row.style.display="none");
+  }
+
+  function changeFilter(e){
+    updateActiveState(e);
+    filterList(e);
+  }
+
+  // Checks if user is navigation with keyboard
+  function handleFirstTab(e) {
+    if (e.keyCode === 9) { // the "I am a keyboard user" key
+        document.body.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+    }
+}
+
+window.addEventListener('keydown', handleFirstTab);
+
+  </script>
+</body>	
+</html>

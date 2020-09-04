@@ -1,0 +1,40 @@
+---
+layout: default
+title: Jannis Wicke – Designer and developer
+description:   Desinger and developer, founder of PixelPink, currently studying digital media and available for freelance.
+---
+
+<div class="hero">
+    <h1>
+        Desinger, developer, and founder of
+        <a href="#" class="italic">PixelPink</a>, currently studying digital media and<br/>
+        →→→
+        <a href="#" class="italic">available for freelance</a>
+
+    </h1>
+</div>
+<div class="filter">
+    <button data-name="all" class="active">All</button>
+    <button data-name="projects" class="">Projects</button>
+    <button data-name="education" class="">Education</button>
+    <button data-name="awards" class="">Awards</button>
+</div>
+<table>
+    <tbody>
+
+        {# <tr class="mobile">
+            <td>2020</td>
+            <td></td>
+            <td></td>
+        </tr> #}
+
+        {% for project in projects%}
+            <tr data-name="{{ project.type }}">
+                <td>
+                    <span>{{ project.client }}</span></td>
+                <td>{{ project.category }}</td>
+                <td class="desktop">{{ project.year }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
