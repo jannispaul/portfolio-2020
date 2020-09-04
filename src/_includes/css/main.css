@@ -120,7 +120,7 @@ h1 {
 }
 
 .container {
-  padding: 0 var(--s2);
+  padding: 0 var(--s1);
 }
 
 .focus {
@@ -163,6 +163,9 @@ h1 {
   body {
     --s0: 2.5vw;
     --factor: 1.6;
+  }
+  .container {
+    padding: 0 var(--s2);
   }
   .hero {
     max-width: 80vw;
