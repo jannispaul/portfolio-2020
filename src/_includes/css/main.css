@@ -1,8 +1,8 @@
 /* @font-face {
   font-family: "Space Grotesk";
   font-weight: 500;
-  src: url(/fonts/SpaceGrotesk-Medium.woff) format("woff");
-  src: url(/fonts/SpaceGrotesk-Medium.woff2) format("woff2");
+  src: url(assets/fonts/SpaceGrotesk-Medium.woff) format("woff");
+  src: url(assets//fonts/SpaceGrotesk-Medium.woff2) format("woff2");
 } */
 
 * {
@@ -19,6 +19,7 @@ body {
   --s1: calc(var(--s0) * var(--factor));
   --s2: calc(var(--s1) * var(--factor));
   --s3: calc(var(--s2) * var(--factor));
+  --ht: "Antic Didone";
   --bg: #f2f2f2;
   --bg-pattern: #f2f2f2
     url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAADFBMVEUAAAD08vT09vTs7uxaRo4KAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAbVJREFUKJEVUsFqG0EM1U++EZNFntPE+JDe5GUprr9CMaVsc0pLD6EnU3oo/Qpl2cK6JwfyAUPpIU3lyzAjPek9PQ1xWftkrvJpOxMYRyve1piURgfGCmaBkONcTl8xoIsHbx01+5OBlfbvh1JxUyAANSTeYRAJAN2/loj9VkF3TZv8Aj6V6eh3Sguk1tagECcLwAP3yMogqEdQl181uulN9HFb+iYTzfIxYlEyXTKrAPbfBSGc7FkjYXEkUDC22b3jU1VSexzzxi0D95EZd9ML4p6Y0tkcN46CE1M9SGrOmaMdPTM31FsXdlAd0EOriAVpWoIlyrPxjkLJGe5+DXA80oPro2uahWTlNmNT2fo9KYriMlwNbfh84JYAv9SYqiyH7BkmhMpAlzihhCEDbNXx6inKCHYtfbPM+jMmDZDICldfsKYPlvTwGnreYqRjkjWnsQt/Mk2D9/jj+IF3oIuDjCefbn0IobP2kzra1JNK2l/ECKeFdB4vJl4Zjo2QY+mFd4toNBg4NmIe5FuSLlAbVd60Qli2jIqwJYfx7PomJtPF/wUPV/w9lm+Bpt0Zu/gHlmez/0OCHSLmJJE0AAAAAElFTkSuQmCC);
@@ -26,12 +27,14 @@ body {
   --ac: #ff0000;
   background: var(--bg-pattern);
   color: var(--fg);
-  font-family: "Cirka", Optima, Georgia, "Times New Roman", Times, serif;
+  font-family: var(--ht), "Cirka", Optima, Georgia, "Times New Roman", Times,
+    serif;
   font-size: var(--s0);
 }
 button {
   color: var(--fg);
-  font-family: "Cirka", Optima, Georgia, "Times New Roman", Times, serif;
+  font-family: var(--ht), "Cirka", Optima, Georgia, "Times New Roman", Times,
+    serif;
   font-size: var(--s0);
   border: none;
   margin-right: var(--s0);
@@ -42,9 +45,14 @@ a {
   transition: all 200ms;
   color: var(--fg);
 }
+a:after,
+button:after {
+  content: "\0000a0";
+}
 button:hover {
   font-style: italic;
 }
+
 a:focus,
 button:focus {
   background: var(--fg);
