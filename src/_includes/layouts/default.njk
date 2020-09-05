@@ -32,6 +32,7 @@
   <style>{{ css | cssmin | safe }}</style>
 </head>
 <body>
+  <div class="bg"></div>
   <div class="container">
     {% include "components/header.njk" %}
     <section>
@@ -44,9 +45,20 @@
   <div class="focus"></div>
   <script>
   {# const circle = document.querySelector(".focus"); #}
-  let rows = Array.from(document.querySelectorAll("tr"));
-  rows.forEach(row => row.addEventListener("mouseenter", (e) => e.target.classList.add("active")));
-  rows.forEach(row => row.addEventListener("mouseleave", (e) => e.target.classList.remove("active")));
+  let rows = Array.from(document.querySelectorAll(".row"));
+  let clickableRows = Array.from(document.querySelectorAll(".clickable"));
+  let details = Array.from(document.querySelectorAll(".details"));
+
+  // Rows hover 
+  clickableRows.forEach(row => row.addEventListener("mouseenter", (e) => e.target.classList.add("hover")));
+  clickableRows.forEach(row => row.addEventListener("mouseleave", (e) => e.target.classList.remove("hover")));
+  // Rows click
+  clickableRows.forEach(row => row.addEventListener("click", (e) => {
+    e.currentTarget.nextElementSibling.classList.toggle("hidden");
+    e.currentTarget.classList.toggle("active");
+  }));
+  {# clickableRows.forEach(row => row.addEventListener("click", (e) => console.log(e.target.nextElementSibling))); #}
+
 
 
  function debounce(func, wait = 20, immediate = true) {
@@ -67,23 +79,34 @@
  
 
   const filterButtons = Array.from(document.querySelectorAll(".filter > button"));
-  filterButtons.forEach(button => button.addEventListener("click", changeFilter));
+  filterButtons.forEach(button => button.addEventListener("click", updateFilter));
 
-  function updateActiveState(e){
+  function updateButtonState(e){
     filterButtons.forEach(button => button.dataset.name === e.target.dataset.name && !button.classList.contains("active") ? button.classList.add("active") : button.classList.remove("active"));
+  }
+
+  function removeActiveFromRow(){
+      rows.forEach(row => row.classList.remove("active"));
+      details.forEach(detail => detail.classList.contains("hidden") ? "" : detail.classList.add("hidden"));
   }
 
   function filterList(e){
     const filter = e.target.dataset.name;
+    removeActiveFromRow();
+    rows.forEach(row => row.style.display="grid");
     if (filter === "all") {
-      rows.forEach(row => row.style.display="revert");
       return;
     }
-    rows.filter(row => row.dataset.name === filter ? row.style.display="revert" : row.style.display="none");
+  
+    rows.filter(row => row.dataset.name === filter ? row.style.display="grid" : row.style.display="none");
   }
 
-  function changeFilter(e){
-    updateActiveState(e);
+  function updateFilter(e){
+    // Abort if filter that filter is already selcted
+    if (e.target.classList.contains("active")){ 
+      return
+    };
+    updateButtonState(e);
     filterList(e);
   }
 
@@ -95,7 +118,60 @@
     }
 }
 
-window.addEventListener('keydown', handleFirstTab);
+
+const contactButtons = document.querySelectorAll('[data-name="email"]');
+
+const copyToClipboard = (e) => {
+  const el = document.createElement('textarea');
+  el.value = "jannis@paul-wicke.de";
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  // Change text of clicked element temporarily
+  const original =  e.target.textContent;
+  e.target.textContent = 'Email copied!';
+      setTimeout(() => {
+        e.target.textContent = original;
+      }, 1200);
+};
+
+contactButtons.forEach(button => button.addEventListener('click', copyToClipboard));
+
+  {# button.addEventListener('click', () => {
+     const selection = window.getSelection(); 
+    console.log(selection);
+    const range = document.createRange();
+    range.selectNodeContents(button);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+      document.execCommand('copy');
+      selection.removeAllRanges();
+
+      const original = button.textContent;
+      button.textContent = 'Email copied!';
+      button.classList.add('success');
+
+      setTimeout(() => {
+        button.textContent = original;
+        button.classList.remove('success');
+      }, 1200);
+    } catch(e) {
+      const errorMsg = document.querySelector('.error-msg');
+      errorMsg.classList.add('show');
+
+      setTimeout(() => {
+        errorMsg.classList.remove('show');
+      }, 1200);
+    }
+  }); #}
+{# }); #}
+{# window.addEventListener('keydown', handleFirstTab); #}
 
   </script>
 </body>	

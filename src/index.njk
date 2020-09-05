@@ -6,9 +6,10 @@ description:   Desinger and developer, founder of PixelPink, currently studying 
 
 <div class="hero">
     <h1>
-        Desinger, developer, and founder of
-        <a href="#" class="italic">PixelPink</a>, currently studying digital media and<br/>
-        <a href="#" class="italic">available for freelance</a>→
+        Desinger and developer. Founder of
+        <a href="https://pixel-pink.de" target="_blank" rel="noopener noreferrer" class="italic">PixelPink</a>, currently studying digital media, and
+        <a href="#" data-name="email" class="italic">available for freelance</a>.
+        {# <span>→</span> #}
 
     </h1>
 </div>
@@ -18,22 +19,33 @@ description:   Desinger and developer, founder of PixelPink, currently studying 
     <button data-name="education" class="">Education</button>
     <button data-name="awards" class="">Awards</button>
 </div>
-<table>
-    <tbody>
-
-        {# <tr class="mobile">
-            <td>2020</td>
-            <td></td>
-            <td></td>
-        </tr> #}
-
-        {% for project in projects%}
-            <tr data-name="{{ project.type }}">
-                <td>
-                    <span>{{ project.client }}</span></td>
-                <td>{{ project.category }}</td>
-                <td class="desktop">{{ project.year }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="table">
+    {% for project in projects%}
+        <div class="row {% if project.link or project.description %}clickable{% endif %}" data-name="{{ project.type }}">
+            <div class="client">
+                <p>
+                    <span>{{ project.client }}</span></p>
+            </div>
+            <div class=" category" ="category" ">
+                <p>
+                    <span>{{ project.category }}</span></p>
+            </div>
+            <div class="date desktop">
+                <p>{{ project.year }}</p>
+            </div>
+        </div>
+        {% if project.link or project.description %}
+            <div class="details hidden">
+                {% if project.description %}
+                    <p class="project-description">{{ project.description  }}</p>
+                {% endif %}
+                {% if project.link %}
+                    <p class="project-link">
+                        <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.linkText }}</a>
+                    </p>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<!-- <table> <tbody> {% for project in projects%} <tr data-name="{{ project.type }}"> <td> <span>{{ project.client }}</span></td> <td>{{ project.category }}</td> <td class="desktop">{{ project.year }}</td> <td>{{ project.description }}</td> <td> <a href="{{ project.link }}">{{ project.linktext}}</a> </td> </tr> {% endfor %} </tbody> </table>-->
