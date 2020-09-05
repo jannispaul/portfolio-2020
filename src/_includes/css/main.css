@@ -266,7 +266,21 @@ h1 {
   color: var(--ac);
   transition: 0.2s color ease;
 }
-.hero a::before {
+.hero a{
+
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+a:hover, a:focus {
+    background-size: 100% 2px;
+}
+
+/* .hero a::before {
   content: "";
   position: absolute;
   left: 0;
@@ -282,7 +296,7 @@ h1 {
   transform-origin: 0 0;
   transform: scaleX(1);
   /* background: var(--ac); */
-}
+} */
 .hero a:hover + sup,
 .hero a:hover + span {
   color: var(--ac);
