@@ -100,6 +100,9 @@ a {
   transition: all 200ms;
   color: var(--fg);
 }
+a:hover {
+  font-style: italic;
+}
 button:not(.active):hover {
   font-style: italic;
   margin-right: calc(var(--s0));
@@ -306,6 +309,18 @@ h1 {
   opacity: 1;
   color: var(--ac);
 }
+.imprint {
+  display: flex;
+  flex-wrap: 1;
+  flex: 1;
+}
+.imprint > * {
+  margin: var(--s1) 0;
+  flex: 1 0 50%;
+}
+.imprint h1 {
+  margin-bottom: var(--s1);
+}
 @media (min-width: 769px) {
   body {
     --s0: 2.5vw;
@@ -314,6 +329,9 @@ h1 {
 
   .container {
     padding: 0 var(--s2);
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
   }
   /* .hero {
     max-width: 90vw;
