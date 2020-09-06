@@ -254,7 +254,7 @@ h1 {
   position: relative;
 }
 .hero a[target="_blank"]::after {
-  /* content: "↗"; */
+  content: "↗";
   font-size: calc(var(--s1) * 0.9);
   color: var(--fc);
   /* position: absolute;
@@ -266,18 +266,18 @@ h1 {
   color: var(--ac);
   transition: 0.2s color ease;
 }
-.hero a{
-
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .3s;
+.hero a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
 }
 
-a:hover, a:focus {
-    background-size: 100% 2px;
+a:hover,
+a:focus {
+  background-size: 100% 2px;
 }
 
 /* .hero a::before {
@@ -295,7 +295,7 @@ a:hover, a:focus {
 .hero a:hover::before {
   transform-origin: 0 0;
   transform: scaleX(1);
-  /* background: var(--ac); */
+  background: var(--ac); 
 } */
 .hero a:hover + sup,
 .hero a:hover + span {
