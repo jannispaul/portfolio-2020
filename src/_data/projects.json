@@ -3,25 +3,32 @@
         "client": "THB",
         "category": "Master Digital Media",
         "year": "since 2020",
-        "type": "education"
+        "type": "education",
+        "hidden": false
     },
     {
         "client": "Stiftung Schreibwerkstatt",
         "category": "Web design & dev",
         "year": "2020",
-        "type": "projects"
+        "type": "projects",
+        "description": "Designed and developed the website for the political journalism foundation with webflow.",
+        "hidden": true
     },
     {
         "client": "Bosch",
         "category": "App concept & design",
         "year": "2020",
-        "type": "projects"
+        "type": "projects",
+        "description": "Imrpoved pre-existing app concept and created styleguide compliant app design.",
+        "hidden": false
     },
     {
         "client": "Bosch",
         "category": "App design",
         "year": "2020",
-        "type": "projects"
+        "type": "projects",
+        "description": "Created an app design needed for concept changes in existing app.",
+        "hidden": false
     },
     {
         "client": "B!-Das Versicherungsbüro",
@@ -30,25 +37,24 @@
         "type": "projects",
         "link": "https://musikversicherung.com",
         "linkText": "musikversicherung.com",
-        "description": "The project involved a relaunch of the site, which previously ran on Wordpress. The new version includes an improved and dynamic design, stronger SEO and very good performance. In addition the site scores with a clear navigation concept, strong colors, various interactive inquiry forms and a static rating system."
+        "description": "Created a new concept, designed, and developed the site which previously ran on Wordpress. The new version includes an improved, dynamic, user-focused design, much improved SEO, and very good performance.",
+        "hidden": false
     },
     {
         "client": "Telekom",
         "category": "Email dev",
         "year": "2020",
-        "type": "projects"
+        "type": "projects",
+        "description": "Developed and consulted for a design for an internal email. ",
+        "hidden": false
     },
     {
         "client": "PixelPink",
         "category": "Web design & dev",
         "year": "2020",
-        "type": "projects"
-    },
-    {
-        "client": "Arztpraxis Schulzendorf",
-        "category": "Web dev",
-        "year": "2020",
-        "type": "projects"
+        "type": "projects",
+        "description": "Designed and developed the new PixelPink website.",
+        "hidden": false
     },
     {
         "client": "Media Pioneer",
@@ -57,19 +63,8 @@
         "type": "projects",
         "linkText": "join.thepioneer.de",
         "link": "https://join.thepioneer.de/",
-        "description": "We designed and developed a converting landing page to launch the media startup, ThePioneer. Highlighting newly released content, this one-pager offers an exclusive look into the company’s unique mission and vision. The page design is 100% ThePioneer, impressing site visitors with its video content and animations."
-    },
-    {
-        "client": "Media Pioneer",
-        "category": "Web design & dev",
-        "year": "2019",
-        "type": "projects"
-    },
-    {
-        "client": "Media Pioneer",
-        "category": "Web design & dev",
-        "year": "2019",
-        "type": "projects"
+        "description": "Designed and developed the landing page to launch the media startups portal, ThePioneer. Using multiple types of media and interaction.",
+        "hidden": false
     },
     {
         "client": "B!-Das Versicherungsbüro",
@@ -77,91 +72,131 @@
         "year": "2019",
         "type": "projects",
         "linkText": "belmot-oldtimerversicherung.de",
-        "link": "https://belmot-oldtimerversicherung.de"
+        "link": "https://belmot-oldtimerversicherung.de",
+        "description": "Designed the brand and designed and developed the new website with gatsbyjs.",
+        "hidden": false
     },
     {
         "client": "Media Pioneer",
         "category": "Web design & dev",
         "year": "2019",
         "type": "projects",
-        "description": "We designed and developed several landing pages for the media start-up 'ThePioneer': For each of the podcasts The Armericans, Wall Street Weekly and Überstunde we created a website spark the users interest and present the streaming offer. For the launch of 'ThePioneer' we created a one-pager, that gives you an insight into the background and unique projects of the company."
+        "description": "Designed and developed several landing pages for the start-up Media Pioneer and their podcasts The Armericans, Wall Street Weekly and Überstunde.",
+        "hidden": false
     },
     {
         "client": "Telekom",
-        "category": "UX-Concept",
+        "category": "Concept & design",
         "year": "2019",
-        "type": "projects"
+        "type": "projects",
+        "description": "Created a concept and design for an internal tool for data-management.",
+        "hidden": false
     },
     {
         "client": "Media Pioneer",
-        "category": "Wordpress Developement",
+        "category": "Wordpress dev",
         "year": "2018",
         "type": "projects",
         "linkText": "mediapioneer.com",
         "link": "https://mediapioneer.com",
-        "description": "To effectively communicate the company’s commitment to democratized journalism, Gabor Steingart’s MediaPioneer needed a simple and flexible website. The Wordpress site and corresponding content management system we set up lets the fast-growing MediaPioneer team manage webpages and content independently. Using striking colors, we established a brand identity that site visitors are sure to remember."
+        "description": "Built a Wordpress site that the fast-growing MediaPioneer team can manage independently.",
+        "hidden": false
     },
     {
         "client": "Telekom",
-        "category": "Chatbot concept + design",
+        "category": "Chatbot concept & design",
         "year": "2018",
-        "type": "projects"
+        "type": "projects",
+        "description": "Created a concept, design and prototype for a Telekom chatbot.",
+        "hidden": false
     },
     {
         "client": "Serviceria",
         "category": "Wordpress dev",
         "year": "2018",
-        "type": "projects"
+        "type": "projects",
+        "description": "Developed a wordpress site for service production company Serviceria.",
+        "hidden": false
     },
     {
         "client": "Bosch",
         "category": "Email design & dev",
         "year": "2018",
-        "type": "projects"
+        "type": "projects",
+        "description": "Design and developed an internal email.",
+        "hidden": false
     },
     {
         "client": "QVSTA",
-        "category": " App design",
+        "category": "Concept & design",
         "year": "2018",
         "type": "projects",
         "linkText": "qvsta.com",
         "link": "https://qvsta.com/",
-        "description": "In the fashion industry, it's still common practice to manually search for models and book them via e-mail. QVSTA helps digitalize the fashion industry by streamlining this process, enabling platform users to search, book, and manage talent all in one place. Together with the QVSTA team, we developed a modern brand identity and a component-based design system that builds the foundation for all QVSTA digital products."
+        "description": "Concepted and designed a component-based design-system for qvsta, a platform for talent management.",
+        "hidden": false
     },
     {
         "client": "Neugelb",
         "category": "Styleguide",
         "year": "2018",
-        "type": "projects"
+        "type": "projects",
+        "description": "Created a web styleguide.",
+        "hidden": false
     },
     {
         "client": "Mosaik App",
         "category": "App concept & design",
         "year": "2017",
-        "type": "projects"
+        "type": "projects",
+        "description": "Developed the concept and design for the social shopping app Mosaik.",
+        "hidden": false
+    },
+    {
+        "client": "Arztpraxis Schulzendorf",
+        "category": "Web design & dev",
+        "year": "2018",
+        "type": "projects",
+        "description": "Designed and developed the website for family doctor Peggy von Niederhäusern's practice.",
+        "hidden": false
+    },
+    {
+        "client": "Best CSS",
+        "category": "Site of the day",
+        "year": "2017",
+        "type": "awards",
+        "hidden": true
     },
     {
         "client": "AKQA",
         "category": "Internship",
         "year": "2016",
-        "type": "education"
+        "type": "education",
+        "description": "Interned in strategy and creative teams working with clients like Nike, Jägermeister, IWC, and Swatch.",
+        "hidden": false
     },
     {
         "client": "Adobe",
         "category": "Student Representative",
         "year": "2016",
-        "type": "education"
+        "type": "education",
+        "description": "Gave Adobe workshops at university, participated in Adobe meetups and created Adobe featured artwork.",
+        "hidden": false
     },
     {
         "client": "Anja Lange",
         "category": "Web design & dev",
         "year": "2014",
-        "type": "projects"
+        "type": "projects",
+        "description": "Designed and developed personal Website for IT-Manager Anja Lange.",
+        "hidden": false
     },
     {
         "client": "Macromedia University",
         "category": "Bachelor of Arts",
         "year": "2013 - 2017",
-        "type": "education"
+        "type": "education",
+        "description": "Bachelor of Arts in Media and Communication Design.",
+        "hidden": false
     }
 ]

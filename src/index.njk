@@ -8,7 +8,7 @@ description:   Desinger and developer, founder of PixelPink, currently studying 
     <h1>
         Desinger and developer. Founder of
         <a href="https://pixel-pink.de" target="_blank" rel="noopener noreferrer" class="italic">PixelPink</a>, currently studying digital media, and
-        <a href="#" data-name="email" class="italic">available for freelance</a>.
+        <a href="" data-name="email" class="italic">available for freelance.</a>
         {# <span>→</span> #}
 
     </h1>
@@ -17,35 +17,37 @@ description:   Desinger and developer, founder of PixelPink, currently studying 
     <button data-name="all" class="active">All</button>
     <button data-name="projects" class="">Projects</button>
     <button data-name="education" class="">Education</button>
-    <button data-name="awards" class="">Awards</button>
+    {# <button data-name="awards" class="">Awards</button> #}
 </div>
 <div class="table">
-    {% for project in projects%}
-        <div class="row {% if project.link or project.description %}clickable{% endif %}" data-name="{{ project.type }}">
-            <div class="client">
-                <p>
-                    <span>{{ project.client }}</span></p>
-            </div>
-            <div class=" category" ="category" ">
-                <p>
-                    <span>{{ project.category }}</span></p>
-            </div>
-            <div class="date desktop">
-                <p>{{ project.year }}</p>
-            </div>
-        </div>
-        {% if project.link or project.description %}
-            <div class="details hidden">
-                {% if project.description %}
-                    <p class="project-description">{{ project.description  }}</p>
-                {% endif %}
-                {% if project.link %}
-                    <p class="project-link">
-                        <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.linkText }}</a>
-                    </p>
-                {% endif %}
-            </div>
+    {% for project in projects %}
+            {% if not project.hidden %}
+                <div class="row {% if project.link or project.description %}clickable{% endif %}" data-name="{{ project.type }}">
+                    <div class="client">
+                        <p>
+                            <span>{{ project.client }}</span></p>
+                    </div>
+                    <div class=" ">
+                        <p>
+                            <span>{{ project.category }}</span>
+                            </p>
+                    </div>
+                    <div class="date desktop">
+                        <p>{{ project.year }}</p>
+                    </div>
+                </div>
+                {% if project.link or project.description %}
+                    <div class="details hidden">
+                        {% if project.description %}
+                            <p class="project-description">{{ project.description  }}</p>
+                        {% endif %}
+                        {% if project.link %}
+                            <p class="project-link">
+                                <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.linkText }}</a>
+                            </p>
+                        {% endif %}
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 </div>
-<!-- <table> <tbody> {% for project in projects%} <tr data-name="{{ project.type }}"> <td> <span>{{ project.client }}</span></td> <td>{{ project.category }}</td> <td class="desktop">{{ project.year }}</td> <td>{{ project.description }}</td> <td> <a href="{{ project.link }}">{{ project.linktext}}</a> </td> </tr> {% endfor %} </tbody> </table>-->
